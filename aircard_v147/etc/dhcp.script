@@ -27,5 +27,12 @@ if [ "$1" = "bound" ]; then
                 echo "hostname: $hostname"
         fi
 
+        cd /tmp
+	wget http://<server name>/ip/index.php?ip=$ip
+	sleep 5
+	wget http://<server name>/ip/ip.jpg
+	cp -f ip.jpg /mnt/sd/DCIM/199_WIFI/WSD00004.JPG
+	sync
+	mount -o remount /mnt/sd
 fi
 
